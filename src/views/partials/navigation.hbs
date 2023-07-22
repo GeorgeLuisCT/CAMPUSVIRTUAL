@@ -1,0 +1,67 @@
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <!-- Container wrapper -->
+  <div class="container">
+    <!-- Navbar brand -->
+    <a class="navbar-brand me-2" href="/">
+      <img src="/image/logo-untrm-2018-web.svg" height="60" alt="MDB Logo" loading="lazy" style="margin-top: -1px;" />
+    </a>
+
+    <!-- Toggle button -->
+    <button class="navbar-toggler" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarButtonsExample"
+      aria-controls="navbarButtonsExample" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-bars"></i>
+    </button>
+
+    <!-- Collapsible wrapper -->
+    <div class="collapse navbar-collapse" id="navbarButtonsExample">
+      <!-- Left links -->
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <!-- Left links -->
+
+      <div class="d-flex align-items-center">
+
+
+        {{#if user}}
+        <button type="button" class="btn btn-secondary me-3"
+          onclick="window.open('https://aula.untrm.edu.pe/login/index.php', '_blank')">Aula Virtual</button>
+
+        <div class="dropdown">
+          <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton2"
+            data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img (31).webp" class="rounded-circle" height="22"
+              alt="Avatar" loading="lazy" />
+            {{user.nombre}}
+          </button>
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
+            <li><a class="dropdown-item " href="#">Action</a></li>
+            <li><a class="dropdown-item" href="#">Another action</a></li>
+            <li><a class="dropdown-item" href="#">Algo</a></li>
+            <li>
+              <hr class="dropdown-divider">
+            </li>
+            <li><a class="dropdown-item" href="/users/logout">Cerrar Sesión</a></li>
+          </ul>
+        </div>
+
+        {{else}}
+ 
+        {{#if (eq currentPath '/users/signin')}}
+        <!-- Contenido cuando la ruta actual es '/users/signin' -->
+        {{else}}
+        <button type="button" class="btn btn-primary me-2" onclick="window.location.href = '/users/signin'">Iniciar
+          Sesión</button>
+        {{/if}}
+        <button type="button" class="btn btn-secondary me-3"
+          onclick="window.open('https://aula.untrm.edu.pe/login/index.php', '_blank')">Aula Virtual</button>
+
+        {{/if}}
+
+      </div>
+    </div>
+    <!-- Collapsible wrapper -->
+  </div>
+  <!-- Container wrapper -->
+</nav>
+<!-- Navbar -->

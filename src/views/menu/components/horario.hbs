@@ -1,0 +1,29 @@
+  <h1>Horario</h1>
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Horario</th>
+          <th>Curso</th>
+          <th>Tipo</th>
+          <th>Ambiente</th>
+          <th>Docente</th>
+          <th>Pabellón</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each horarios}}
+        <tr>
+          <td>{{this.horario}}</td>
+          <td>{{this.nombre_curso}}</td>
+          <td>{{this.tipo_curso}}</td>
+          <td>{{this.ambiente}}</td>
+          <td>{{this.nombre_completo}}</td>
+          <td>{{this.pabellon}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>

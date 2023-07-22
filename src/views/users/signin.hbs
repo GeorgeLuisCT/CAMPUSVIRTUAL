@@ -1,0 +1,35 @@
+<div class="row">
+    <div class="col-md-4 mx-auto">
+        <div class="card text-center">
+            <div class="card-header">
+               <h5> Inicio de Sesión</h5>
+            </div>
+            <img src="/image/banner-campus-2016.png" class=" mx-auto d-block m-4 logo">
+
+            <div class="card-body">
+                <form action="/users/signin" method="POST">
+                    <div class="form-group mb-3">
+                        <input type="text" class="form-control" name="codigo" placeholder="Codigo">
+                    </div>
+                    <div class="form-group mb-3">
+                        <input type="password" class="form-control" name="contrasena" placeholder="Contraseña" autocomplete="on">
+                    </div>
+                    <div class="form-group mb-3">
+                        <select class="form-select" aria-label="Default select example" name="perfil">
+                            <option selected value="Estudiante">Estudiante</option>
+                            <option value="Profesor">Docente</option>
+                            <option value="Gefes/Directores">Gefes/Directores</option>
+                            <option value="Egresados">Egresados</option>
+                            <option value="DAYRA">DAYRA</option>
+                            <option value="A.I">A.I</option>
+                        </select>
+                    </div>
+
+                    <div class="d-grid gap-2 col-6 mx-auto">
+                        <button class="btn btn-primary ">Entrar</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

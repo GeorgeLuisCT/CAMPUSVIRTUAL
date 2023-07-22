@@ -1,0 +1,89 @@
+<div class="d-flex align-items-start custom-div">
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+        <button id="btn-matricula" onclick="cargarContenido('/menu/matricula')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-profile" type="button" role="tab"
+            aria-controls="v-pills-profile" aria-selected="false">Mi Matrícula</button>
+        <button id="btn-horario" onclick="cargarContenido('/menu/horario')" class="nav-link text-nowrap active"
+            data-bs-toggle="pill" data-bs-target="#v-pills-messages" type="button" role="tab"
+            aria-controls="v-pills-messages" aria-selected="false">Mi Horario</button>
+        <button id="btn-notas" onclick="cargarContenido('/menu/notas')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-settings" type="button" role="tab"
+            aria-controls="v-pills-settings" aria-selected="false">Mis Notas</button>
+        <button id="btn-asistencia" onclick="cargarContenido('/menu/asistencia')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-asistencia" type="button" role="tab"
+            aria-controls="v-pills-asistencia" aria-selected="false">Mi Asistencia</button>
+        <button id="btn-cursos-faltantes" onclick="cargarContenido('/menu/cursos-faltantes')"
+            class="nav-link text-nowrap" data-bs-toggle="pill" data-bs-target="#v-pills-cursos-faltantes" type="button"
+            role="tab" aria-controls="v-pills-cursos-faltantes" aria-selected="false">Cursos Faltantes</button>
+        <button id="btn-orden-merito" onclick="cargarContenido('/menu/orden-merito')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-orden-merito" type="button" role="tab"
+            aria-controls="v-pills-orden-merito" aria-selected="false">Orden de Mérito</button>
+        <button id="btn-rendimiento" onclick="cargarContenido('/menu/rendimiento')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-rendimiento" type="button" role="tab"
+            aria-controls="v-pills-rendimiento" aria-selected="false">Mi Rendimiento</button>
+        <button id="btn-planes-estudio" onclick="cargarContenido('/menu/planes-estudio')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-planes-estudio" type="button" role="tab"
+            aria-controls="v-pills-planes-estudio" aria-selected="false">Planes Estudio</button>
+        <button id="btn-deudas" onclick="cargarContenido('/menu/deudas')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-deudas" type="button" role="tab"
+            aria-controls="v-pills-deudas" aria-selected="false">Mis Deudas</button>
+        <button id="btn-actualizar-datos" onclick="cargarContenido('/menu/actualizar-datos')"
+            class="nav-link text-nowrap" data-bs-toggle="pill" data-bs-target="#v-pills-actualizar-datos" type="button"
+            role="tab" aria-controls="v-pills-actualizar-datos" aria-selected="false">Actualizar Datos</button>
+        <button id="btn-companeros" onclick="cargarContenido('/menu/companeros')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-companeros" type="button" role="tab"
+            aria-controls="v-pills-companeros" aria-selected="false">Mis Compañeros</button>
+        <button id="btn-otros-horarios" onclick="cargarContenido('/menu/otros-horarios')" class="nav-link text-nowrap"
+            data-bs-toggle="pill" data-bs-target="#v-pills-otros-horarios" type="button" role="tab"
+            aria-controls="v-pills-otros-horarios" aria-selected="false">Otros Horarios</button>
+        <button id="btn-actividades-integradoras" onclick="cargarContenido('/menu/actividades-integradoras')"
+            class="nav-link text-nowrap" data-bs-toggle="pill" data-bs-target="#v-pills-actividades-integradoras"
+            type="button" role="tab" aria-controls="v-pills-actividades-integradoras" aria-selected="false">Act.
+            Integradoras</button>
+    </div>
+    <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+
+    </div>
+
+    <div class="tab-content w-100" id="v-pills-tabContent">
+        {{#ifEqual option "horario"}}
+        {{> components/horario}}
+        {{else ifEqual option "notas"}}
+        {{> components/notas}}
+        {{else}}
+
+        {{/ifEqual}}
+
+    </div>
+
+    <div id="loading-message" style="display: none;"
+        class="position-absolute top-50 start-50 translate-middle text-center">
+        <div class="loader"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            cargarContenido('/menu/horario');
+        });
+
+        var loadingMessage = document.getElementById('loading-message');
+        var loadicontet = document.getElementById('v-pills-tabContent');
+
+        function cargarContenido(url) {
+            loadicontet.style.display = 'none';
+            loadingMessage.style.display = 'block';
+            fetch(url)
+                .then(response => response.text())
+                .then(data => {
+                    document.getElementById('v-pills-tabContent').innerHTML = data;
+                })
+                .catch(error => {
+                    console.error('Error al cargar el contenido:', error);
+                })
+                .finally(() => {
+                    loadingMessage.style.display = 'none';
+                    loadicontet.style.display = 'block';
+                });
+        }
+    </script>
+</div>

@@ -1,0 +1,37 @@
+<h1>Matricula</h1>
+<div class="container mt-5">
+  <div class="table-responsive">
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Curso</th>
+          <th>Nombre</th>
+          <th>Ciclo</th>
+          <th>Cred.</th>
+          <th>Exig.</th>
+          <th>Vez</th>
+          <th>Sec.</th>
+          <th>Gru.</th>
+          <th>PE</th>
+          <th>Tipo Mat.</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each matricula}}
+        <tr>
+          <td>{{this.Curso}}</td>
+          <td>{{this.Nombre}}</td>
+          <td>{{this.Ciclo}}</td>
+          <td>{{this.Creditos}}</td>
+          <td>{{this.Exig}}</td>
+          <td>{{this.Vez}}</td>
+          <td>{{this.Sec}}</td>
+          <td>{{this.Gru}}</td>
+          <td>{{this.PE}}</td>
+          <td>{{this.TipoMat}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
